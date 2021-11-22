@@ -1,0 +1,60 @@
+<div class="container-fluid sticky-top p-0">
+    <header class="">
+        <div class="logo-heading">
+            <i class="fas fa-2x m-2 fa-shopping-cart"></i><h2>E-Kart</h2>
+        </div>
+        <div class="header-logout">
+            <div class="">
+                <div class="dropdown">
+                    <a class="dropdown-toggle a-decoration-logout" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Hi, {{user | titlecase}}</a>
+                    <ul class="dropdown-menu drop" aria-labelledby="dropdownMenuLink">
+                      <li class=""><a class="dropdown-item a-decoration-logout" (click)="logout()" >Logout</a></li>
+                    </ul>
+                  </div>
+            </div>
+            <div class=""> 
+                <a class="a-decoration-logout px-auto" (click)="toggleTheme()"><i class="fas mx-2 fa-adjust" title="Dark/Light Mode"></i></a>
+                <span class="ps-3 " title="Today's Date">{{dLogin | date:'mediumDate' | titlecase}}</span>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div class="container">
+    <div class="row mt-3 min-height">
+        <!-- side bar -->
+        <!-- <div class="col-2 border-end border-dark px-0">
+            <div>
+                <button (click)="userList()" class="anker-button text-start ps-3"><a class="">Users <span class="badge a-decoration">({{userCount}})</span></a></button>
+            </div>
+            <div>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#AddNewProduct" class="anker-button text-start ps-3"><a class="">Add Product</a></button>
+            </div>
+        </div> -->
+
+        <!-- dashboard -->
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4" *ngFor="let data of productLists">
+                    <div>
+                        <img src='{{data.img_path}}' title="{{data.img_path}}">
+                        <h3>{{data.prod_name}}</h3>
+                        <h5>{{data.price}}</h5>
+                        <p>{{data.description}}</p>
+                        <button type="submit" class="btn btn-danger m-1">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>            
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <footer class="text-center py-3">
+            <h6>E-Kart</h6>
+            <h6>Created By: Ratheesh K</h6>
+        </footer>
+    </div>
+</div>
